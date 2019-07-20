@@ -13,21 +13,38 @@
 </head>
 
 <body>
-    <div id="sidenav" class="sidenav">
+    <aside id="sidenav" class="sidenav">
+        <div id="logo">
+            Weather or Not
+        </div>
+        <div id="map">
+
+        </div>
         <div class="sidebarText">
             <a href="#">About</a>
             <a href="#">What's near me?</a>
             <a href="#">Activities</a>
+            <a href="#" onclick="document.getElementById('weekly-weather').classList.toggle('active')">Weekly
+                Weather</a>
             <a href="#">Contact Us</a>
         </div>
-    </div>
-    <div class="containerHomepagePicture">
+    </aside>
+    <main class="main">
+        <div class="containerHomepagePicture"></div>
         <div id="homepageText">
             <p>The Weather today is</p>
             <p>TK degrees and TK weather</p>
-
         </div>
-    </div>
+        <div id="weekly-weather">
+            <div id="sunday" class="weather-card">sunday</div>
+            <div id="monday" class="weather-card">monday</div>
+            <div id="tuesday" class="weather-card">tuesday</div>
+            <div id="wednesday" class="weather-card">wednesday</div>
+            <div id="thursday" class="weather-card">thursday</div>
+            <div id="friday" class="weather-card">friday</div>
+            <div id="saturday" class="weather-card">saturday</div>
+        </div>
+    </main>
 </body>
 
 </html>
