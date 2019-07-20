@@ -105,13 +105,13 @@
   }
 
   #weekly-weather.active {
-    left: 50px;
+    left: 100px;
   }
 
   .weather-card {
     display: inline-block;
-    height: 125px;
-    width: 125px;
+    height: 175px;
+    width: 175px;
     background-color: #fff;
     margin: 0 10px;
     text-align: center;
