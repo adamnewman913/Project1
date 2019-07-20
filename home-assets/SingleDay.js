@@ -33,12 +33,13 @@ var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
        $("#city").html("<h1>" + response.name + " Weather Details</h1>");
        $("#wind").text("Wind Speed: " + response.wind.speed);
        $("#humidity").text("Humidity: " + response.main.humidity);
-       $("#temp").text("Temperature (F) " + response.main.temp);
+       var tempF = (response.main.temp - 273.15) * 1.80 + 32;
+       $("#temp").text("Temperature (F) " + tempF);
 //NEED TO CONVERT KELVIN TO F
        // Log the data in the console as well
        console.log("Wind Speed: " + response.wind.speed);
        console.log("Humidity: " + response.main.humidity);
-       console.log("Temperature (F): " + response.main.temp);
+       console.log("Temperature (F): " + tempF);
      });
 
     }, function () {
