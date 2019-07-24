@@ -23,7 +23,7 @@ var queryURL = "https://api.openweathermap.org/data/2.5/forecast?" +
        console.log(response);
 
        // Transfer content to HTML
-       $("#city").html("<h1>" + response.name + " Weather Details</h1>");
+       $(".day-1").html("<h1>" + response.list.array[4] + " Weather Details</h1>");
        $("#wind").text("Wind Speed: " + response.wind.speed);
        $("#humidity").text("Humidity: " + response.main.humidity);
        $("#temp").text("Temperature (F) " + response.main.temp.math((temp-273.15)*1.8)+32);
