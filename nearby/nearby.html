@@ -13,13 +13,27 @@
 <body>
     <div id='map'></div>
 
+    <div id='searchPlaceContainer'>
+        <form>
+            <div id='searchPlace'>
+                <h4>Search for a place</h4>
+            </div>
+            <div class="form-group">
+                <label for="SearchPlace">Train Name</label>
+                <input type="text" class="form-control" id="inputPlace">
+            </div>
+            <button type="submit" id="submit-form" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="nearby.js"></script>
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDThdi8ae1kNWbWPRaDJx52t4Vv-fOo9d0&callback=initMap&libraries=places"
         async defer></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-    <script src="nearby.js"></script>
 
 </body>
 
