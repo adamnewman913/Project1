@@ -115,22 +115,35 @@ $("#submit-form").on("click", function (event) {
 
 
     navigator.geolocation.getCurrentPosition(function (position) {
-        initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+
+        var latitudeResult = position.coords.latitude;
+        var longitudeResult = position.coords.longitude;
+
+        event.preventDefault();
+
+        var placeInput = $("#inputPlace").val().trim();
+
+        var requestURL = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input='
+            + placeInput + '&inputtype=textquery&fields=photos,formatted_address,name,opening_hours,rating&locationbias=circle:2000@' + latitudeResult + ',' + longitudeResult + '&key=AIzaSyDThdi8ae1kNWbWPRaDJx52t4Vv-fOo9d0';
+
+
+
+        $.ajax({
+            url: requestURL,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response);
+
+
+        });
+
 
     });
-    var latitudeResult = position.coords.latitude;
-    var longitudeResult = position.coords.longitude;
 
-    event.preventDefault();
-
-    var placeInput = $("#inputPlace").val().trim();
-
-    var requestURL = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input='
-        + placeInput + '&inputtype=textquery&fields=photos,formatted_address,name,opening_hours,rating&locationbias=circle:2000@' + latitudeResult + ',' + longitudeResult + '&key=AIzaSyDThdi8ae1kNWbWPRaDJx52t4Vv-fOo9d0';
-    console.log(requestURL);
+});
 
     //push user input into an array , to use later to  show  markers
     //put all array input into query url calls
 
 
-});
