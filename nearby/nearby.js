@@ -10,8 +10,8 @@
 
 var map, infoWindow;
 var chicago = { lat: 41.85, lng: -87.65 };
-var service;
-//var infowindow;
+
+
 
 function CenterControl(controlDiv, map) {
 
@@ -56,6 +56,9 @@ function initMap() {
         zoom: 12,
         center: chicago
     });
+
+
+
     infoWindow = new google.maps.InfoWindow;
 
     // Try HTML5 geolocation.
@@ -84,58 +87,7 @@ function initMap() {
 
     centerControlDiv.index = 1;
     map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
-    // Create the places service.
-    var service = new google.maps.places.PlacesService(map);
-    var getNextPage = null;
-    var moreButton = document.getElementById('more');
-    moreButton.onclick = function () {
-        moreButton.disabled = true;
-        if (getNextPage) getNextPage();
-    };
-
-    // Perform a nearby search.
-    service.nearbySearch(
-        { location: pyrmont, radius: 500, type: ['store'] },
-        function (results, status, pagination) {
-            if (status !== 'OK') return;
-
-            createMarkers(results);
-            moreButton.disabled = !pagination.hasNextPage;
-            getNextPage = pagination.hasNextPage && function () {
-                pagination.nextPage();
-            };
-        });
 }
-
-function createMarkers(places) {
-    var bounds = new google.maps.LatLngBounds();
-    var placesList = document.getElementById('places');
-
-    for (var i = 0, place; place = places[i]; i++) {
-        var image = {
-            url: place.icon,
-            size: new google.maps.Size(71, 71),
-            origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(17, 34),
-            scaledSize: new google.maps.Size(25, 25)
-        };
-
-        var marker = new google.maps.Marker({
-            map: map,
-            icon: image,
-            title: place.name,
-            position: place.geometry.location
-        });
-
-        var li = document.createElement('li');
-        li.textContent = place.name;
-        placesList.appendChild(li);
-
-        bounds.extend(place.geometry.location);
-    }
-    map.fitBounds(bounds);
-}
-
 
 
 
@@ -152,3 +104,33 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         'Error: Your browser doesn\'t support geolocation.');
     infoWindow.open(map);
 }
+
+
+
+
+//Submit form code start here -------------------------------------------------
+
+
+$("#submit-form").on("click", function (event) {
+
+
+    navigator.geolocation.getCurrentPosition(function (position) {
+        initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+    });
+    var latitudeResult = position.coords.latitude;
+    var longitudeResult = position.coords.longitude;
+
+    event.preventDefault();
+
+    var placeInput = $("#inputPlace").val().trim();
+
+    var requestURL = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input='
+        + placeInput + '&inputtype=textquery&fields=photos,formatted_address,name,opening_hours,rating&locationbias=circle:2000@' + latitudeResult + ',' + longitudeResult + '&key=AIzaSyDThdi8ae1kNWbWPRaDJx52t4Vv-fOo9d0';
+    console.log(requestURL);
+
+    //push user input into an array , to use later to  show  markers
+    //put all array input into query url calls
+
+
+});
