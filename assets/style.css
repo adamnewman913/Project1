@@ -15,6 +15,7 @@
   #logo {
     color: #818181;
     font-size: 25px;
+    padding-top: 20px;
   }
 
   /* The navigation menu links */
@@ -52,7 +53,7 @@
 
   .sidebarText {
     align-content: center;
-    padding-top: 400px;
+    padding-top: 300px;
   }
   .containerHomepagePicture {
     height: 100%;
