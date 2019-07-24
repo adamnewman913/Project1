@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+
 </head>
 
 <body>
@@ -21,28 +25,51 @@
 
         </div>
         <div class="sidebarText">
-            <a href="#">About</a>
-            <a href="#">What's near me?</a>
-            <a href="#">Activities</a>
+            <a href="index.html">About</a>
+            <a href="nearby/nearby.html">What's near me?</a>
+            <a href="options/options.html">Activities</a>
             <a href="#" onclick="document.getElementById('weekly-weather').classList.toggle('active')">Weekly
                 Weather</a>
             <a href="./contact.html">Contact Us</a>
+
         </div>
     </aside>
     <main class="main">
-        <div class="containerHomepagePicture"></div>
+        
+        <div class="containerHomepagePicture">
+            
+            <!-- Large modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
+            
+            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  ...
+                </div>
+              </div>
+            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
         <div id="homepageText">
             <p>The Weather today is</p>
             <p>TK degrees and TK weather</p>
         </div>
+        
         <div id="weekly-weather">
             <div id="day-1" class="weather-card">Day 1</div>
             <div id="day-2" class="weather-card">Day 2</div>
             <div id="day-3" class="weather-card">Day 3</div>
             <div id="day-4" class="weather-card">Day 4</div>
             <div id="day-5" class="weather-card">Day 5</div>
+        
         </div>
-    </main>
-</body>
 
-</html>
+
+        
+
+
+    </main>

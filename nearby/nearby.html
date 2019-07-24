@@ -10,37 +10,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="../assets/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"></a>
+    <link rel="stylesheet" type="text/css" href="nearby.css">
 </head>
 
 <body>
-    <aside id="sidenav" class="sidenav">
-        <div id="logo">
-            <img src="../assets/images/windypic.jpg" alt="Weather or Not Logo" height="150" width="250">
-        </div>
-        <div id="map">
 
-        </div>
-        <div class="sidebarText">
-            <a href="#">About</a>
-            <a href="#">What's near me?</a>
-            <a href="#">Activities</a>
-            <a href="#" onclick="document.getElementById('weekly-weather').classList.toggle('active')">Weekly
-                Weather</a>
-            <a href="./contact.html">Contact Us</a>
-        </div>
-    </aside>
-    <main class="main">
-        <div class="containerHomepagePicture"></div>
-        <div id="homepageText">
-            <p>The Weather Today Is</p>
-            <p>TK degrees and TK weather</p>
-        </div>
-
-    </main>
+        <aside id="sidenav" class="sidenav">
+                <div id="logo">
+                    <img src="../assets/images/windypic.jpg" alt="Weather or Not Logo" height="150" width="250">
+                </div>
+                <div id="map">
+        
+                </div>
+                <div class="sidebarText">
+                    <a href="../index.html">About</a>
+                    <a href="nearby.html">What's near me?</a>
+                    <a href="../options/options.html">Activities</a>
+                    <a href="#" onclick="document.getElementById('weekly-weather').classList.toggle('active')">Weekly
+                        Weather</a>
+                    <a href="../contact.html">Contact Us</a>
+                </div>
+            </aside>
     <div id='map'></div>
+
+
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDThdi8ae1kNWbWPRaDJx52t4Vv-fOo9d0&callback=initMap&libraries=places"
+        async defer></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="nearby.js"></script>
 
 </body>
 
