@@ -10,9 +10,10 @@
 
 var map, infoWindow;
 var chicago = { lat: 41.85, lng: -87.65 };
+var latitudeResult = 0;
+var longitudeResult = 0;
 
-
-
+//function for re-centering the map on click of button----------
 function CenterControl(controlDiv, map) {
 
     // Set CSS for the control border.
@@ -38,8 +39,11 @@ function CenterControl(controlDiv, map) {
     controlText.innerHTML = 'Center Map';
     controlUI.appendChild(controlText);
 
+
     // Setup the click event listeners: simply set the map to Chicago.
     controlUI.addEventListener('click', function () {
+        event.preventDefault();
+
         navigator.geolocation.getCurrentPosition(function (position) {
             initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
             map.setCenter(initialLocation);
@@ -47,10 +51,10 @@ function CenterControl(controlDiv, map) {
     });
 
 }
+//-------------------------------------------------------------------------
 
 
-
-
+//function for initializing the map----------------------
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 12,
@@ -68,6 +72,9 @@ function initMap() {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
+            latitudeResult = position.coords.latitude;
+            longitudeResult = position.coords.longitude;
+
 
             infoWindow.setPosition(pos);
             infoWindow.setContent('Location found.');
@@ -80,7 +87,7 @@ function initMap() {
         // Browser doesn't support Geolocation
         handleLocationError(false, infoWindow, map.getCenter());
     }
-
+    console.log(latitudeResult);
 
     var centerControlDiv = document.createElement('div');
     var centerControl = new CenterControl(centerControlDiv, map);
@@ -88,13 +95,10 @@ function initMap() {
     centerControlDiv.index = 1;
     map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
 }
+//-------------------------------------------------------------------------
 
 
 
-
-
-// Create the DIV to hold the control and call the CenterControl()
-// constructor passing in this DIV.
 
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -105,49 +109,72 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.open(map);
 }
 
+//-------------------------------------------------------------------------
 
 
 
-//Submit form code start here -------------------------------------------------
+//Submit form code starts here -------------------------------------------------
 
 
 $("#submit-form").on("click", function (event) {
+    event.preventDefault();
 
+    placeInput = $("#inputPlace").val().trim();
+
+    //leaving off at trying to show multiple objects, maybe doesnt show because i need it
+    //go through a loop.might also have to push the objects to an array
 
     navigator.geolocation.getCurrentPosition(function (position) {
+        latitudeResult = position.coords.latitude;
+        longitudeResult = position.coords.longitude;
+    })
 
 
-        var latitudeResult = position.coords.latitude;
-        var longitudeResult = position.coords.longitude;
-
-        event.preventDefault();
-
-        var placeInput = $("#inputPlace").val().trim();
-
-        var requestURL = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input='
-            + placeInput + '&inputtype=textquery&fields=photos,formatted_address,name,opening_hours,rating&locationbias=circle:2000@' + latitudeResult + ',' + longitudeResult + '&key=AIzaSyDThdi8ae1kNWbWPRaDJx52t4Vv-fOo9d0';
+    var requestURL = 'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input='
+        + placeInput + '&inputtype=textquery&fields=photos,formatted_address,name,opening_hours,rating&locationbias=circle:50000@' + latitudeResult + ',' + longitudeResult + '&key=AIzaSyDThdi8ae1kNWbWPRaDJx52t4Vv-fOo9d0&limit=10';
 
 
 
-        $.ajax({
-            url: requestURL,
-            method: "GET"
-        }).then(function (response) {
+    $.ajax({
+        url: requestURL,
+        method: "GET"
+    })
+
+
+        // $.ajax({
+        //     headers: { "Accept": "application/json" },
+        //     type: 'GET',
+        //     url: requestURL,
+        //     crossDomain: true,
+        //     beforeSend: function (xhr) {
+        //         xhr.withCredentials = true;
+        //     },
+        //     success: function (data, textStatus, request) {
+        //         console.log(data);
+        //     }
+        // })
+
+
+        .then(function (response) {
+            console.log(requestURL);
             console.log(response);
 
             var results = response.data;
+
+
             for (var i = 0; i < results.length; i++) {
+                console.log(response);
 
             };
-
 
 
         });
 
 
-    });
+})
+    //});
 
-});
+
 
     //push user input into an array , to use later to  show  markers
     //put all array input into query url calls
