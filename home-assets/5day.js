@@ -38,117 +38,20 @@ var queryURL = "https://api.openweathermap.org/data/2.5/forecast?" +
        $("#day-3").html("<p>Temperature (F) " + tempF3 + "<br>" + weatherD3 + "</p>");
        $("#day-4").html("<p>Temperature (F) " + tempF4 + "<br>" + weatherD4 + "</p>");
        $("#day-5").html("<p>Temperature (F) " + tempF5 + "<br>" + weatherD5 + "</p>")
- //Tried to fit the weather variables into an array, but I guess I suck and life is meaningless
- //var weatherArray = [weatherD1, weatherD2, weatherD3, weatherD4, weatherD5]
- //var arrayLength = weatherArray.length;
-//for (var i = 0; i < arrayLength; i++) {
-  if(weatherD1 === "Clouds"){
-    $("#day-1").append('<img src= "assets/images/kinda-cloudy-icon.png">')
-  }
-  else if(weatherD1 === "Clear"){
-    $("#day-1").append('<img src= "assets/images/sunny-icon.png">')
-  }
-  else if(weatherD1 === "Rain"){
-    $("#day-1").append('<img src= "assets/images/rain-icon.png">')
-  }
-  else if(weatherD1 === "Thunderstorm"){
-    $("#day-1").append('<img src= "assets/images/storm-icon.png">')
-  }
-  else if(weatherD1 === "Snow"){
-    $("#day-1").append('<img src= "assets/images/snow-icon.png">')
-  }
-  else if(weatherD1 === "Mist"){
-    $("#day-1").append('<img src= "assets/images/mist-icon.png">')
-  };
-  
-  if(weatherD2 === "Clouds"){
-    $("#day-2").append('<img src= "assets/images/kinda-cloudy-icon.png">')
-  }
-  else if(weatherD2 === "Clear"){
-    $("#day-2").append('<img src= "assets/images/sunny-icon.png">')
-  }
-  else if(weatherD2 === "Rain"){
-    $("#day-2").append('<img src= "assets/images/rain-icon.png">')
-  }
-  else if(weatherD2 === "Thunderstorm"){
-    $("#day-2").append('<img src= "assets/images/storm-icon.png">')
-  }
-  else if(weatherD2 === "Snow"){
-    $("#day-2").append('<img src= "assets/images/snow-icon.png">')
-  }
-  else if(weatherD2 === "Mist"){
-    $("#day-2").append('<img src= "assets/images/mist-icon.png">')
-  };
+ 
+  iconThing(weatherD1, 1);
+  iconThing(weatherD2, 2);
+  iconThing(weatherD3, 3);
+  iconThing(weatherD4, 4);
+  iconThing(weatherD5, 5);
   
   
-  if(weatherD3 === "Clouds"){
-    $("#day-3").append('<img src= "assets/images/kinda-cloudy-icon.png">')
-  }
-  else if(weatherD3 === "Clear"){
-    $("#day-3").append('<img src= "assets/images/sunny-icon.png">')
-  }
-  else if(weatherD3 === "Rain"){
-    $("#day-3").append('<img src= "assets/images/rain-icon.png">')
-  }
-  else if(weatherD3 === "Thunderstorm"){
-    $("#day-3").append('<img src= "assets/images/storm-icon.png">')
-  }
-  else if(weatherD3 === "Snow"){
-    $("#day-3").append('<img src= "assets/images/snow-icon.png">')
-  }
-  else if(weatherD3 === "Mist"){
-    $("#day-3").append('<img src= "assets/images/mist-icon.png">')
-  };
-  
-  
-  if(weatherD4 === "Clouds"){
-    $("#day-4").append('<img src= "assets/images/kinda-cloudy-icon.png">')
-  }
-  else if(weatherD4 === "Clear"){
-    $("#day-4").append('<img src= "assets/images/sunny-icon.png">')
-  }
-  else if(weatherD4 === "Rain"){
-    $("#day-4").append('<img src= "assets/images/rain-icon.png">')
-  }
-  else if(weatherD4 === "Thunderstorm"){
-    $("#day-4").append('<img src= "assets/images/storm-icon.png">')
-  }
-  else if(weatherD4 === "Snow"){
-    $("#day-4").append('<img src= "assets/images/snow-icon.png">')
-  }
-  else if(weatherD4 === "Mist"){
-    $("#day-4").append('<img src= "assets/images/mist-icon.png">')
-  };
-
-
-  if(weatherD5 === "Clouds"){
-    $("#day-5").append('<img src= "assets/images/kinda-cloudy-icon.png">')
-  }
-  else if(weatherD5 === "Clear"){
-    $("#day-5").append('<img src= "assets/images/sunny-icon.png">')
-  }
-  else if(weatherD5 === "Rain"){
-    $("#day-5").append('<img src= "assets/images/rain-icon.png">')
-  }
-  else if(weatherD5 === "Thunderstorm"){
-    $("#day-5").append('<img src= "assets/images/storm-icon.png">')
-  }
-  else if(weatherD5 === "Snow"){
-    $("#day-5").append('<img src= "assets/images/snow-icon.png">')
-  }
-  else if(weatherD5 === "Mist"){
-    $("#day-5").append('<img src= "assets/images/mist-icon.png">')
-  };
 
     //Do something
 //};
       
     
-       // Log the data in the console as well
       
-       thunderstorm
-       snow
-       mist
 
      });
 
@@ -158,4 +61,26 @@ var queryURL = "https://api.openweathermap.org/data/2.5/forecast?" +
 } else {
     // Browser doesn't support Geolocation
     handleLocationError(false, infoWindow, map.getCenter());
+}
+
+function iconThing(weather, day) {
+  if (weather === "Clouds") {
+    $("#day-"+day).append('<img src= "assets/images/kinda-cloudy-icon.png">');
+  }
+  else if (weather === "Clear") {
+    $("#day-"+day).append('<img src= "assets/images/sunny-icon.png">');
+  }
+  else if (weather === "Rain") {
+    $("#day-"+day).append('<img src= "assets/images/rain-icon.png">');
+  }
+  else if (weather === "Thunderstorm") {
+    $("#day-"+day).append('<img src= "assets/images/storm-icon.png">');
+  }
+  else if (weather === "Snow") {
+    $("#day-"+day).append('<img src= "assets/images/snow-icon.png">');
+  }
+  else if (weather === "Mist") {
+    $("#day-"+day).append('<img src= "assets/images/mist-icon.png">');
+  }
+  ;
 }
