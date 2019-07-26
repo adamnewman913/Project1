@@ -21,9 +21,7 @@
         <div id="logo">
             <img src="./assets/images/weatherornot_cropped.png" alt="Weather or Not Logo" height="150" width="250">
         </div>
-        <div id="map">
 
-        </div>
         <div class="sidebarText">
             <a href="index.html">About</a>
             <a href="newnearby.html">What's near me?</a>
@@ -35,12 +33,28 @@
     </aside>
     <main class="main">
 
-        <div class="containerHomepagePicture">
+        <div class="containerHomepagePicture1">
 
             <div id="homepageText">
-                <p>The Weather Today Is</p>
-                <p>TK degrees and TK weather</p>
+                <p>Find parks near me!</p>
             </div>
+            <div id='map'></div>
+            <div id='searchPlaceContainer'>
+
+                <form>
+                    <div id='searchPlace'>
+                        <h4>Search for a city</h4>
+                    </div>
+
+                    <div class="form-group">
+                        <!-- <label for="SearchPlace">Search</label> -->
+                        <input type="text" class="form-control" id="inputPlace">
+                    </div>
+                    <button type="submit" id="submit-form" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+
+
 
             <div id="weekly-weather">
                 <div id="day-1" class="weather-card">Day 1</div>
@@ -52,8 +66,19 @@
             </div>
 
 
-            <script src="home-assets/5day.js"></script>
-            <script src="home-assets/SingleDay.js"></script>
+            <script src="./home-assets/5day.js"></script>
+            <script src="./home-assets/SingleDay.js"></script>
 
 
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+            <script src="./nearby/nearby.js"></script>
+
+            <script
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDThdi8ae1kNWbWPRaDJx52t4Vv-fOo9d0&callback=initMap&libraries=places"
+                async defer></script>
     </main>
+</body>
+
+</html>
