@@ -207,7 +207,7 @@ main {
     height: 100%;
     width: 100%;
     float: right;
-    background-image: URL("./images/kites2.jpg");
+    background-image: URL("./images/kite3.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -215,3 +215,50 @@ main {
     opacity: 0.8;
     filter: alpha(opacity=80); /* For IE8 and earlier */
   }
+
+  html,
+.Modal-body {
+   height: 100%;
+}
+
+.ModalContainer
+{
+   height: 100%;
+   width:100%;
+
+    background-size: cover;
+    background-repeat:no-repeat;
+}
+.container-box
+{
+    display:inline-block;
+    
+    
+
+ margin-left: 18px;
+ margin-top: 10px;
+ margin-bottom: 15px;
+ z-index:11;
+
+
+
+}
+
+.modal-content
+{
+ background: rgba(255, 255, 255,);    
+ font-size: 20px;
+ color:black !important;
+}
+
+
+
+
+.modal-backdrop {
+ z-index: 0;
+}
+
+#button {
+ position: relative !important;
+ padding-left: 50%;
+}
