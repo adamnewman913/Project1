@@ -116,3 +116,7 @@
     margin: 0 10px;
     text-align: center;
   }
+
+  .weather-card img {
+    width: 60px;
+  }
