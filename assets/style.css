@@ -119,10 +119,11 @@ main {
 }
 
 #map {
-  margin-left:300px;
-  margin-top:150px;    
+  color: #fff;
+  margin-top:50px;    
   height: 50%;
-      width: 50%
+  width: 50%;
+  margin-left: 80px;
     }
 
     html, body {
