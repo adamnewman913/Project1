@@ -21,15 +21,25 @@ var queryURL = "https://api.openweathermap.org/data/2.5/forecast?" +
 
        // Log the resulting object
        console.log(response);
+       var tempF1 = parseInt((response.list[4].main.temp - 273.15) * 1.80 + 32);
+       var tempF2 = parseInt((response.list[12].main.temp - 273.15) * 1.80 + 32);
+       var tempF3 = parseInt((response.list[20].main.temp - 273.15) * 1.80 + 32);
+       var tempF4 = parseInt((response.list[28].main.temp - 273.15) * 1.80 + 32);
+       var tempF5 = parseInt((response.list[36].main.temp - 273.15) * 1.80 + 32);
+
+       Math.floor(tempF1)
+
+
 
        // Transfer content to HTML
-       $(".day-1").html("<h1>" + response.list.array[4] + " Weather Details</h1>");
-       $("#wind").text("Wind Speed: " + response.wind.speed);
-       $("#humidity").text("Humidity: " + response.main.humidity);
-       $("#temp").text("Temperature (F) " + response.main.temp.math((temp-273.15)*1.8)+32);
+       $("#day-1").html("<p>Temperature (F)" + tempF1 + "</p>");
+       $("#day-2").html("<p>Temperature (F) "+ tempF2 + "</p>");
+       $("#day-3").html("<p>Temperature (F) " + tempF3 + "</p>");
+       $("#day-4").html("<p>Temperature (F) " + tempF4 + "</p>");
+       $("#day-5").html("<p>Temperature (F) " + tempF5 + "</p>")
 
        // Log the data in the console as well
-       console.log("Wind Speed: " + response.wind.speed);
+       console.log("Wind Speed: " + response.list[4].main.temp );
        console.log("Humidity: " + response.main.humidity);
        console.log("Temperature (F): " + response.main.temp);
      });
