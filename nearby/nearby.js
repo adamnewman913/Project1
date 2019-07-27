@@ -1,3 +1,4 @@
+var API_KEY = 'AIzaSyDThdi8ae1kNWbWPRaDJx52t4Vv-fOo9d0';
 var map;
 var service;
 var infowindow;
@@ -12,7 +13,7 @@ placeInput = $("#inputPlace").val().trim();
 
 
 function initMap() {
-    var map = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.getElementById('map'), {
         center: chicago,
         zoom: 13,
         mapTypeId: 'roadmap'
@@ -24,6 +25,11 @@ function initMap() {
             lng: position.coords.longitude
         };
         map.setCenter(pos);
+        new google.maps.Marker({
+            position: pos,
+            map: map,
+            title: 'You are here!'
+        });
     });
 
     // Create the search box and link it to the UI element.
@@ -83,5 +89,54 @@ function initMap() {
             }
         });
         map.fitBounds(bounds);
+    });
+}
+
+function searchPlace() {
+    var location = $('#inputPlace').val();
+    location.replace(' ', '+');
+    console.log(location)
+
+    $.ajax('https://maps.googleapis.com/maps/api/geocode/json?address=' + location + '&key=' + API_KEY)
+        .then(function (response) {
+            var position = response.results[0].geometry.location;
+            centerMap(position);
+            getPlaces(position);
+            console.log(response)
+        })
+}
+
+function centerMap(position) {
+    map.setCenter(position);
+    createMarker(position, 'You are here!')
+    getPlaces(position);
+}
+
+function createMarker(position, title, isPark = false) {
+    var icon = isPark ? 'http://maps.google.com/mapfiles/ms/icons/green-dot.png' : 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
+    new google.maps.Marker({
+        position: position,
+        map: map,
+        title: title,
+        icon: icon
+    });
+}
+
+function getPlaces(position) {
+    var request = {
+        location: position,
+        radius: '700',
+        type: 'park'
+    }
+
+    var service = new google.maps.places.PlacesService(map);
+
+    service.nearbySearch(request, function (results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            for (var i = 0; i < results.length; i++) {
+                createMarker(results[i].geometry.location, results[i].name, true);
+            }
+        }
+        console.log(results)
     });
 }
