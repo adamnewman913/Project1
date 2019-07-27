@@ -19,15 +19,15 @@
 
 <body>
     <aside id="sidenav" class="sidenav">
-
-        <div id="logo">
-            <img src="./assets/images/weatherornot_cropped.png" alt="Weather or Not Logo" height="150" width="250">
-        </div>
+        <a href="index.html">
+            <div id="logo">
+                <img src="./assets/images/weatherornot_cropped.png" alt="Weather or Not Logo" height="150" width="250">
+            </div>
+        </a>
+        <div id="today"></div>
         <div class="sidebarText">
-            <a href="index.html">About</a>
+            <a href="about.html">About</a>
             <a href="newnearby.html">What's near me?</a>
-            <a href="options/options.html">Activities</a>
-
             <a href="#" onclick="document.getElementById('weekly-weather').classList.toggle('active')">Weekly
                 Weather</a>
             <div class="ModalContainer">
@@ -83,12 +83,17 @@
     </aside>
     <main class="main">
 
-        <div class="containerHomepagePicture">
-
-        <div id="homepageText">
-        
+        <div class="containerAboutPicture">
+            <div id="homepageText">
+                <h1>About Weather or Not</h1>
+                <p>
+                    In a digital world, it is important to find opportunities to get outside and be active. Weather or
+                    Not brings these opportunities conveniently to you. In this app, you can search locations, find the
+                    daily weather in your city, see the weekly weather, and find parks nearby. It has never been easier
+                    to plan your perfect day!
+                </p>
+            </div>
         </div>
-
 
         <div id="weekly-weather">
             <div id="day-1" class="weather-card">Day 1</div>
@@ -97,7 +102,6 @@
             <div id="day-4" class="weather-card">Day 4</div>
             <div id="day-5" class="weather-card">Day 5</div>
         </div>
-
     </main>
     <script src="home-assets/5day.js"></script>
     <script src="home-assets/SingleDay.js"></script>
