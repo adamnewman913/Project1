@@ -8,8 +8,7 @@ var longitudeResult = 0;
 placeInput = $("#inputPlace").val().trim();
 
 
-//delete everything except basic variables again and put in the place search code again, then put in then setCenter
-// onto global map variable through some
+
 
 
 function initMap() {
