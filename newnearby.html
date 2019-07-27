@@ -22,9 +22,7 @@
         <div id="logo">
             <img src="./assets/images/weatherornot_cropped.png" alt="Weather or Not Logo" height="150" width="250">
         </div>
-        <div id="map">
 
-        </div>
         <div class="sidebarText">
             <a href="index.html">About</a>
             <a href="newnearby.html">What's near me?</a>
@@ -84,62 +82,52 @@
     </aside>
     <main class="main">
 
-        <div class="containerHomepagePicture">
+        <div class="containerHomepagePicture1">
 
-<<<<<<< HEAD
-
-
-        </div>
-
-=======
-            <!-- Large modal -->
-
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
-            
-            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  ...
-                </div>
-              </div>
+            <div id="homepageText">
+                <p>Find parks near me!</p>
             </div>
-           
->>>>>>> cb6afdbb12f48d29016b4908ba1112a3c0939804
-        <div id="homepageText">
-            <p>The Weather Today Is</p>
-            <p>TK degrees and TK weather</p>
-        </div>
+            <div id='map'></div>
+            <div id='searchPlaceContainer'>
 
-        <div id="weekly-weather">
-            <div id="day-1" class="weather-card">Day 1</div>
-            <div id="day-2" class="weather-card">Day 2</div>
-            <div id="day-3" class="weather-card">Day 3</div>
-            <div id="day-4" class="weather-card">Day 4</div>
-            <div id="day-5" class="weather-card">Day 5</div>
+                <form>
+                    <div id='searchPlace'>
+                        <h4>Search for a city</h4>
+                    </div>
 
-        </div>
-
-<<<<<<< HEAD
-
-<<<<<<< HEAD
+                    <div class="form-group">
+                        <!-- <label for="SearchPlace">Search</label> -->
+                        <input type="text" class="form-control" id="inputPlace">
+                    </div>
+                    <button type="submit" id="submit-form" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
 
 
 
-=======
-=======
-        <script src="./contact.js"></script>
->>>>>>> b323d08a36c62465cc504ded99c8cf1c0afa036b
-        <script src="home-assets/5day.js"></script>
-        <script src="home-assets/SingleDay.js"></script>
+            <div id="weekly-weather">
+                <div id="day-1" class="weather-card">Day 1</div>
+                <div id="day-2" class="weather-card">Day 2</div>
+                <div id="day-3" class="weather-card">Day 3</div>
+                <div id="day-4" class="weather-card">Day 4</div>
+                <div id="day-5" class="weather-card">Day 5</div>
+
+            </div>
 
 
-<<<<<<< HEAD
->>>>>>> 9c64e3e6214f88066e7e3b71a51b63cce3553fcb
+            <script src="./home-assets/5day.js"></script>
+            <script src="./home-assets/SingleDay.js"></script>
+
+
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script src="./contact.js"></script>
+            <script src="./nearby/nearby.js"></script>
+
+            <script
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDThdi8ae1kNWbWPRaDJx52t4Vv-fOo9d0&callback=initMap&libraries=places"
+                async defer></script>
     </main>
-=======
-    </main>
-<script src="home-assets/5day.js"></script>
-<script src="home-assets/SingleDay.js"></script>
 </body>
+
 </html>
->>>>>>> b323d08a36c62465cc504ded99c8cf1c0afa036b

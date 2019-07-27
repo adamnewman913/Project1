@@ -1,71 +1,270 @@
-  .sidenav {
-    height: 100%; /* Full-height: remove this if you want "auto" height */
-    width: 300px; /* Set the width of the sidebar */
-    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-    z-index: 20; /* Stay on top */
-    top: 0; /* Stay at the top */
-    left: 0;
-    background-color: #111; /* Black */
-    overflow-x: hidden; /* Disable horizontal scroll */
-    display: inline-block;
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 300px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 20; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  display: inline-block;
+  align-content: center;
+  text-align: center;
+}
+
+#logo {
+  color: #818181;
+  font-size: 25px;
+  padding-top: 20px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+/* Style page content */
+.main {
+  margin-left: 300px; /* Same as the width of the sidebar */
+  height: 100vh;
+  background-color: #000;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+} 
+
+#sidenav {
+    
+}
+
+.sidebarText {
+  align-content: center;
+  padding-top: 300px;
+}
+.containerHomepagePicture {
+  height: 100%;
+  width: 100%;
+  float: right;
+  background-image: URL("./images/rainpic.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  opacity: 0.8;
+  filter: alpha(opacity=80); /* For IE8 and earlier */
+}
+
+  .containerHomepagePicture:hover {
+    /* opacity: 0.5;
+    filter: alpha(opacity=100); For IE8 and earlier */
+  }
+
+#homepageText {
+  color: #fff;
+  text-shadow: 2px 2px #000;
+  font-size: 5em;
+  text-align: center;
+  margin: 50px;
+  /* background-color: rgba(245, 245, 245, 0.349); */
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+main {
+  position: relative;
+  margin-left: 300px;
+  width: calc(100% - 300px);
+}
+
+#weekly-weather {
+  position: absolute;
+  display: flex;
+  width: 1015px;
+  bottom: 20px;
+  z-index: 10;
+  height: 200px;
+  left: -100%;
+  transition: 1.5s ease-in-out;
+}
+
+#weekly-weather.active {
+  left: 100px;
+}
+
+.weather-card {
+  display: inline-block;
+  height: 175px;
+  width: 175px;
+  background-color: #fff;
+  margin: 0 10px;
+  text-align: center;
+}
+
+#map {
+  margin-left:300px;
+  margin-top:150px;    
+  height: 50%;
+      width: 50%
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    #right-panel {
+      font-family: 'Roboto','sans-serif';
+      line-height: 30px;
+      padding-left: 10px;
+    }
+
+    #right-panel select, #right-panel input {
+      font-size: 15px;
+    }
+
+    #right-panel select {
+      width: 100%;
+    }
+
+    #right-panel i {
+      font-size: 12px;
+    }
+    #right-panel {
+      font-family: Arial, Helvetica, sans-serif;
+      position: absolute;
+      right: 5px;
+      top: 60%;
+      margin-top: -195px;
+      height: 330px;
+      width: 200px;
+      padding: 5px;
+      z-index: 5;
+      border: 1px solid #999;
+      background: #fff;
+    }
+    h2 {
+      font-size: 22px;
+      margin: 0 0 5px 0;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      height: 271px;
+      width: 200px;
+      overflow-y: scroll;
+    }
+    li {
+      background-color: #f1f1f1;
+      /* padding: 10px; */
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    li:nth-child(odd) {
+      background-color: #fcfcfc;
+    }
+    #more {
+      width: 100%;
+      margin: 5px 0 0 0;
+    }
+
+
+  #searchPlaceContainer {
     align-content: center;
     text-align: center;
+    padding-top: 50px;
+    color: white;
   }
 
-  #logo {
-    color: #818181;
-    font-size: 25px;
-    padding-top: 20px;
+  #searchPlace {
+    margin-top: 10px;
   }
 
-  /* The navigation menu links */
-  .sidenav a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
+  .modal-backdrop {
+    z-index: 0;
   }
 
-  /* When you mouse over the navigation links, change their color */
-  .sidenav a:hover {
-    color: #f1f1f1;
-    font-size: 30px;
-    text-decoration: none;
-  }
-
-  /* Style page content */
-  .main {
-    margin-left: 300px; /* Same as the width of the sidebar */
-    height: 100vh;
-    background-color: #000;
-  }
-
-  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  } 
-
-  #sidenav {
-      
-  }
-
-  .sidebarText {
-    align-content: center;
-    padding-top: 300px;
-  }
-  .containerHomepagePicture {
+  .containerHomepagePicture1 {
     height: 100%;
     width: 100%;
     float: right;
-    background-image: URL("./images/rainpic.jpg");
+    background-image: URL("./images/kite3.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     display: block;
     opacity: 0.8;
     filter: alpha(opacity=80); /* For IE8 and earlier */
+<<<<<<< HEAD
+  }
+
+  html,
+.Modal-body {
+   height: 100%;
+}
+
+.ModalContainer
+{
+   height: 100%;
+   width:100%;
+
+    background-size: cover;
+    background-repeat:no-repeat;
+}
+.container-box
+{
+    display:inline-block;
+    
+    
+
+ margin-left: 18px;
+ margin-top: 10px;
+ margin-bottom: 15px;
+ z-index:11;
+
+
+
+}
+
+.modal-content
+{
+ background: rgba(255, 255, 255,);    
+ font-size: 20px;
+ color:black !important;
+}
+
+
+
+
+.modal-backdrop {
+ z-index: 0;
+}
+
+#button {
+ position: relative !important;
+ padding-left: 50%;
+}
+=======
+
   }
 
     .containerHomepagePicture:hover {
@@ -117,3 +316,8 @@
     margin: 0 10px;
     text-align: center;
   }
+
+  .weather-card img {
+    width: 60px;
+  }
+>>>>>>> cb6afdbb12f48d29016b4908ba1112a3c0939804
