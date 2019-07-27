@@ -62,7 +62,7 @@ function initMap() {
         var bounds = new google.maps.LatLngBounds();
         places.forEach(function (place) {
             if (!place.geometry) {
-                console.log("Returned place contains no geometry");
+                console.warn("Returned place contains no geometry");
                 return;
             }
             var icon = {
@@ -95,14 +95,12 @@ function initMap() {
 function searchPlace() {
     var location = $('#inputPlace').val();
     location.replace(' ', '+');
-    console.log(location)
 
     $.ajax('https://maps.googleapis.com/maps/api/geocode/json?address=' + location + '&key=' + API_KEY)
         .then(function (response) {
             var position = response.results[0].geometry.location;
             centerMap(position);
             getPlaces(position);
-            console.log(response)
         })
 }
 
@@ -137,6 +135,5 @@ function getPlaces(position) {
                 createMarker(results[i].geometry.location, results[i].name, true);
             }
         }
-        console.log(results)
     });
 }
