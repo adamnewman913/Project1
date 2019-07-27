@@ -53,13 +53,13 @@
 
 .sidebarText {
   align-content: center;
-  padding-top: 300px;
+  padding-top: 275px;
 }
 .containerHomepagePicture {
   height: 100%;
   width: 100%;
   float: right;
-  background-image: URL("./images/rainpic.jpg");
+  background-image: URL("./images/clearskies.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -86,7 +86,11 @@
   left: 0;
   right: 0;
   margin: 0 auto;
+  
 }
+    #homepageText p {
+      font-size: 3rem;
+    }
 
 main {
   position: relative;
@@ -118,12 +122,15 @@ main {
   text-align: center;
 }
 
+#today {
+  color: #fff;
+}
+
 #map {
   color: #fff;
-  margin-top:50px;    
-  height: 50%;
-  width: 50%;
-  margin-left: 80px;
+  margin-top:100px;    
+  height: 60%;
+  width: 100%;;
     }
 
     html, body {
@@ -215,56 +222,20 @@ main {
     display: block;
     opacity: 0.8;
     filter: alpha(opacity=80); /* For IE8 and earlier */
-<<<<<<< HEAD
+
   }
 
-  html,
-.Modal-body {
-   height: 100%;
-}
-
-.ModalContainer
-{
-   height: 100%;
-   width:100%;
-
+  .containerAboutPicture {
+    height: 100%;
+    width: 100%;
+    float: right;
+    background-image: URL("./images/weather-background.jpg");
     background-size: cover;
-    background-repeat:no-repeat;
-}
-.container-box
-{
-    display:inline-block;
-    
-    
-
- margin-left: 18px;
- margin-top: 10px;
- margin-bottom: 15px;
- z-index:11;
-
-
-
-}
-
-.modal-content
-{
- background: rgba(255, 255, 255,);    
- font-size: 20px;
- color:black !important;
-}
-
-
-
-
-.modal-backdrop {
- z-index: 0;
-}
-
-#button {
- position: relative !important;
- padding-left: 50%;
-}
-=======
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    opacity: 0.8;
+    filter: alpha(opacity=80); /* For IE8 and earlier */
 
   }
 
@@ -321,4 +292,3 @@ main {
   .weather-card img {
     width: 60px;
   }
->>>>>>> cb6afdbb12f48d29016b4908ba1112a3c0939804
