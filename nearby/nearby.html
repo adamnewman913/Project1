@@ -33,7 +33,13 @@
         </div>
     </aside>
 
+<<<<<<< Updated upstream
     <div id='searchPlaceContainer'>
+=======
+
+    <!-----
+     <div id='searchPlaceContainer'>
+>>>>>>> Stashed changes
         <form>
             <div id='searchPlace'>
                 <h4>Search for a place</h4>
@@ -45,8 +51,11 @@
             <button type="submit" id="submit-form" class="btn btn-primary">Submit</button>
         </form>
     </div>
+--->
 
-    <div id='map'></div>
+    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+    <div id="map"></div>
+
 
 
 
@@ -56,9 +65,16 @@
 
     <script src="nearby.js"></script>
 
+    <!-----
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDThdi8ae1kNWbWPRaDJx52t4Vv-fOo9d0&callback=initMap&libraries=places"
         async defer></script>
+---->
+
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDThdi8ae1kNWbWPRaDJx52t4Vv-fOo9d0&libraries=places&callback=initAutocomplete"
+        async defer></script>
+
 </body>
 
 </html>
